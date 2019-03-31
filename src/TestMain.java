@@ -29,6 +29,9 @@ public class TestMain {
 		System.out.println("Size = " + arrayList.size() + " get index 5  = " + arrayList.get(5));
 		System.out.println("IsEmpty? = " + arrayList.isEmpty() + "\n");
 
+//		 // checking exception
+//		System.out.println(arrayList.get(105));
+
 		MyList<String> linkedListForAddAll = new MyArrayList<>();
 		linkedListForAddAll.add("2");
 		linkedListForAddAll.add("5");
@@ -51,6 +54,9 @@ public class TestMain {
 
 		// checking size + get with index
 		System.out.println("Size = " + linkedList.size() + " get index 3  = " + linkedList.get(3));
+
+		// checking exception
+		System.out.println(linkedList.get(105));
 	}
 }
 

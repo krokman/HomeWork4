@@ -1,10 +1,8 @@
-import java.util.NoSuchElementException;
-
 public class MyLinkedList<T> implements MyList<T> {
 
 	private Node firstNode;
 	private Node lastNode;
-	private int size;
+	private int size = 0;
 
 	public MyLinkedList() {
 		size = 0;
@@ -111,7 +109,7 @@ public class MyLinkedList<T> implements MyList<T> {
 
 	@Override
 	public boolean isEmpty() {
-		if (size == 0 && firstNode == null && lastNode == null) {
+		if (size == 0) {
 			return true;
 		}
 		return false;
@@ -134,7 +132,7 @@ public class MyLinkedList<T> implements MyList<T> {
 		return result.toString();
 	}
 
-	class Node<T> {
+	private class Node<T> {
 		private Node prev;
 		private Node next;
 		private T value;
@@ -148,8 +146,7 @@ public class MyLinkedList<T> implements MyList<T> {
 
 	private void checkIndex(int index) {
 		if (size < index || index < 0) {
-			throw new NoSuchElementException();
+			throw new ArrayIndexOutOfBoundsException("Index: " + index + " size: " + size);
 		}
 	}
-
 }
