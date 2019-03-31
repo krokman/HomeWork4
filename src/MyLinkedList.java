@@ -109,10 +109,7 @@ public class MyLinkedList<T> implements MyList<T> {
 
 	@Override
 	public boolean isEmpty() {
-		if (size == 0) {
-			return true;
-		}
-		return false;
+		return size == 0;
 	}
 
 

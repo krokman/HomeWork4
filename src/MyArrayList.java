@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MyArrayList<T> implements MyList<T> {
 	private T[] array;
 	private int lastIndex = 0;
@@ -72,10 +74,7 @@ public class MyArrayList<T> implements MyList<T> {
 
 	@Override
 	public boolean isEmpty() {
-		if (lastIndex == 0) {
-			return true;
-		}
-		return false;
+		return lastIndex == 0;
 	}
 
 	@Override
@@ -100,13 +99,9 @@ public class MyArrayList<T> implements MyList<T> {
 
 	private void insureOrDecreaseCapacityIfNeed() {
 		if (array.length < lastIndex + 2) {
-			T[] arrayBuffer = (T[]) new Object[array.length << 1];
-			System.arraycopy(array, 0, arrayBuffer, 0, lastIndex);
-			array = arrayBuffer;
+			array = Arrays.copyOf(array, array.length << 1);
 		} else if (array.length > ((lastIndex << 1) + 3)) {
-			T[] arrayBuffer = (T[]) new Object[(array.length >> 1) + 3];
-			System.arraycopy(array, 0, arrayBuffer, 0, lastIndex);
-			array = arrayBuffer;
+			array = Arrays.copyOf(array, array.length >> 1);
 		}
 	}
 }
